@@ -15,6 +15,11 @@ class CarAPI {
         return try carsToDictionary(cars: cars).jsonEncodedString()
     }
     
+    static func allAsDictionary() throws -> [[String : Any]] {
+        let cars = try Car.getAll()
+        return carsToDictionary(cars: cars)
+    }
+    
     static func getFirst() throws -> String {
         if let car = try Car.getFirst() {
             return try car.asDictionary().jsonEncodedString()

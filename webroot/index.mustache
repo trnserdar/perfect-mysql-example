@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Cars</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="/css/normalize.css">
+                <link rel="stylesheet" href="/css/skeleton.css">
+                    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        
+        <div class="container">
+            
+            <div class="row">
+                <div class="u-full-width">
+                    <h2>Car List | <small>Perfect Web Service</small></h2>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="u-full-width">
+                    <h4>Add New Car</h4>
+                </div>
+            </div>
+            
+            <form action="/cars" method="post">
+                <div class="row">
+                    <div class="three columns">
+                        <label>Brand</label>
+                        <input name="brand" class="u-full-width" placeholder="e.g. Volkswagen" />
+                    </div>
+                    <div class="nine columns">
+                        <label>Model</label>
+                        <input name="model" class="u-full-width" placeholder="e.g. Tiguan" />
+                        <input class="button-primary" type="submit" value="Save Car" />
+                    </div>
+                </div>
+            </form>
+            
+            {{#cars}}
+            <div class="row">
+                <div class="three columns">
+                    <h5><span>{{brand}}</span></h5>
+                </div>
+                <div class="six columns">
+                    <p><span>{{model}}</span></p>
+                </div>
+                <div class="three columns">
+                    <form action="/cars/{{id}}/delete" method="post">
+                        <input type="submit" value="Delete"/>
+                    </form>
+                </div>
+            </div>
+            {{/cars}}
+            
+        </div>
+        
+    </body>
+</html>
+
